@@ -1,3 +1,4 @@
+const {src} = require('./path')
 const config = {
   projectName: 'taro-app',
   date: '2020-11-23',
@@ -30,6 +31,9 @@ const config = {
   },
   plugins: [],
   defineConstants: {
+  },
+  alias: {
+    '@': src
   },
   mini: {
     postcss: {
