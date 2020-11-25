@@ -1,12 +1,29 @@
 import Taro, { Component } from '@tarojs/taro'
+import { connect } from '@tarojs/redux'
 import { View, Text } from '@tarojs/components'
 import './index.scss'
 
-export default class Index extends Component {
+class Home extends Component {
+  // constructor(props) {
+  //   super()
+  //   // console.log(props)
+  // }
+  componentWillMount () { 
+  }
 
-  componentWillMount () { }
-
-  componentDidMount () { }
+  componentDidMount () { 
+    const {dispatch} = this.props
+    dispatch({
+      type: 'home/save',
+      payload: {
+        title: '修改后'
+      }
+    })
+    dispatch({
+      type: 'home/fetchData',
+      payload: {}
+    })
+  }
 
   componentWillUnmount () { }
 
@@ -19,10 +36,15 @@ export default class Index extends Component {
   }
 
   render () {
+    console.log('home',this.props)
     return (
       <View className='index'>
-        <Text>Hello world!</Text>
+        <Text>{this.props.title}</Text>
       </View>
     )
   }
 }
+
+export default connect(({home}) => ({
+  ...home
+}))(Home)

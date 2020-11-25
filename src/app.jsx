@@ -1,8 +1,8 @@
 import Taro, { Component } from '@tarojs/taro'
 import {Provider} from '@tarojs/redux'
 import dva from '@/utils/dva'
+import models from '@/models'
 import Home from './pages/home/index'
-
 import './app.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
@@ -13,11 +13,15 @@ import './app.scss'
 
 const dvaApp = dva.createApp({
   initialState: {},
-  models: {},
+  models: models,
 })
 const store = dvaApp.getStore()
+console.log(store.getState())
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+  }
 
   componentDidMount () {}
 

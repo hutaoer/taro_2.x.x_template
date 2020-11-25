@@ -29,7 +29,20 @@ const config = {
       }]
     ]
   },
-  plugins: [],
+  plugins: [
+    ['@tarojs/plugin-mock', {
+      port: 8888,
+      mocks: {
+        'GET /api/user/1': {
+          success: true,
+          result: {
+          name: 'hutaoer',
+          age: 33
+          }
+        }
+      }
+    }]
+  ],
   defineConstants: {
   },
   alias: {
