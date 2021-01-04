@@ -1,24 +1,22 @@
 import Taro, { Component } from "@tarojs/taro";
 import API from "@/utils/request";
 export default {
-  namespace: "home",
+  namespace: "liveList",
   state: {
-    title: "首页",
+    title: "直播列表",
+    list: [],
   },
   effects: {
     *fetchData({ payload, callback }, { call, put }) {
-      // const res = yield call(Taro.request({
-      //   url: '/api/user/1',
-      //   method: 'GET',
-      //   mode: 'cors',
-      //   data: {},
-      //   header: {
-      //     'content-type': 'application/json'
-      //   }
-      // }))
       const res = yield call(() => {
-        return API.get("/api/home/user/1");
+        return API.get("/api/live/list");
       }, {});
+      yield put({
+        type: "save",
+        payload: {
+          list: res.data.result,
+        },
+      });
     },
   },
   reducers: {

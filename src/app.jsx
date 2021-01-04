@@ -12,7 +12,7 @@ import './app.scss'
 // }
 
 const dvaApp = dva.createApp({
-  initialState: {},
+  initialState:  {},
   models: models,
 })
 const store = dvaApp.getStore()
@@ -33,12 +33,22 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/home/index'
+      'pages/home/index',
+      'pages/live/index'
+    ],
+    subPackages: [
+      {
+        root: 'packageLive',
+        name: 'live',
+        pages: [
+          'pages/liveList/index'
+        ]
+      }
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: '商城',
+      navigationBarTitleText: '商城模板',
       navigationBarTextStyle: 'black'
     }
   }
