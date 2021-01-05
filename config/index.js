@@ -50,6 +50,7 @@ const config = {
   defineConstants: {},
   alias: {
     "@": pathConfig.src,
+    "@/utils": pathConfig.utils,
     "@/pages": pathConfig.pages,
     "@/models": pathConfig.models,
     "@/packageLive": pathConfig.packageLive,

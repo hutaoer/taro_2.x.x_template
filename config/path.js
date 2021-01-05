@@ -9,15 +9,15 @@ const resolveApp = (relativePath) => {
 const src = resolveApp("src");
 const pages = resolveApp("src/pages");
 const models = resolveApp("src/models");
+const utils = resolveApp("src/utils");
 const h5Html = resolveApp("src/index.html");
 // 分包
 const packageLive = resolveApp("src/packageLive");
-console.log(packageLive);
-console.log(src);
 module.exports = {
   src,
   h5Html,
   pages,
   models,
+  utils,
   packageLive,
 };

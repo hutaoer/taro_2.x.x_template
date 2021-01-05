@@ -1,0 +1,46 @@
+/*
+*
+200: '服务器成功返回请求的数据。',
+201: '新建或修改数据成功。',
+202: '一个请求已经进入后台排队（异步任务）。',
+204: '删除数据成功。',
+400: '发出的请求有错误，服务器没有进行新建或修改数据的操作。',
+401: '无权限',
+403: '用户得到授权，但是访问是被禁止的。',
+404: '发出的请求针对的是不存在的记录，服务器没有进行操作。',
+405: '请求行中指定的请求方法不能被用于请求相应的资源',
+406: '请求的格式不可得。',
+410: '请求的资源被永久删除，且不会再得到的。',
+422: '当创建一个对象时，发生一个验证错误。',
+500: '服务器发生错误，请检查服务器。',
+502: '网关错误。',
+503: '服务不可用，服务器暂时过载或维护。',
+504: '网关超时。',
+*/
+export const HTTP_STATUS = {
+  SUCCESS: 200,
+  CREATED: 201,
+  ACCEPTED: 202,
+  NO_CONTENT: 204,
+  CLIENT_ERROR: 400,
+  UNAUTHORIZED: 401,
+  FORBIDDEN: 403,
+  NOT_FOUND: 404,
+  METHOD_NOT_ALLOWED: 405,
+  NOT_ACCEPTABLE: 406,
+  GONE: 410,
+  UNPROCESSABLE_ENTITY: 422,
+  SERVER_ERROR: 500,
+  BAD_GATEWAY: 502,
+  SERVICE_UNAVAILABLE: 503,
+  GATEWAY_TIMEOUT: 504,
+};
+
+export const HTTP_STATUS_MAP = {
+  [HTTP_STATUS.UNAUTHORIZED]: "无权限访问",
+  [HTTP_STATUS.FORBIDDEN]: "禁止访问",
+  [HTTP_STATUS.NOT_FOUND]: "请求资源不存在",
+  [HTTP_STATUS.BAD_GATEWAY]: "网关错误",
+  [HTTP_STATUS.SERVICE_UNAVAILABLE]: "服务器维护中",
+  [HTTP_STATUS.GATEWAY_TIMEOUT]: "网关超时",
+};
